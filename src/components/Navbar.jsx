@@ -1,4 +1,5 @@
-import { Search } from '@material-ui/icons'
+import { Badge } from '@material-ui/core'
+import { Search, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -10,6 +11,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
     padding: 10px 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 `
 // left
@@ -23,19 +25,35 @@ const Language = styled.span`
     cursor: pointer;
 `
 const SearchContainer = styled.div`
-    border: 1px solid lightgray;
+    border: 0.5px solid lightgray;
     display: flex;
     align-items: center;
+    margin-left: 25px;
+    padding: 5px;
+`
+const Input = styled.input`
+    border: none;
 `
 
+
 // center
-const Center = styled.div`
+const Center = styled.h1`
     flex: 1;
+    text-align: center;
+`
+const Logo = styled.div`
+    font-weight: bold;
 `
 
 // right
 const Right = styled.div`
     flex: 1;
+    display: flex;
+    align-items: center;
+`
+const MenuItem = styled.div`
+    font-size: 14px;
+    cursor: pointer;
 `
 
 const NavBar = () => {
@@ -47,12 +65,24 @@ const NavBar = () => {
                         EN
                     </Language>
                     <SearchContainer>
-                        input
+                        <Input />
                         <Search />
                     </SearchContainer>
                 </Left>
-                <Center>Center</Center>
-                <Right>Right</Right>
+
+                <Center>
+                    <Logo>BAKE AWAY</Logo>
+                </Center>
+
+                <Right>
+                    <MenuItem>Sign Up</MenuItem>
+                    <MenuItem>Sign In</MenuItem>
+                    <MenuItem>
+                        <Badge badgeContent={4} color="primary">
+                            <ShoppingCartOutlined />
+                        </Badge> 
+                    </MenuItem>
+                </Right>
             </Wrapper>
         </Container>
     )
